@@ -2,47 +2,18 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class EventForm extends React.Component {
-  state = {
-    firstname: "",
-    lastname: "",
-    email: "",
-    date: new Date()
-  };
+import Input from "./Input";
 
-  onChange = e => {
-    const { value, id } = e.target;
-    this.setState({
-      [id]: value
-    });
-  };
+const EventForm = ({ onChange, date, onDateChange }) => (
+  <form autoComplete="off">
+    <Input labelName="First name" id="firstname" event={onChange} />
 
-  onDateChange = date => {
-    this.setState({
-      date
-    });
-  };
+    <Input labelName="Last name" id="lastname" event={onChange} />
 
-  render() {
-    return (
-      <form autoComplete="off">
-        <label htmlFor="firstname">
-          First name
-          <input id="firstname" onChange={this.onChange} />
-        </label>
+    <Input labelName="Email" id="email" event={onChange} />
 
-        <label htmlFor="lastname">
-          Last name
-          <input id="lastname" onChange={this.onChange} />
-        </label>
+    <DatePicker selected={date} onChange={onDateChange} />
+  </form>
+);
 
-        <label htmlFor="email">
-          Email
-          <input type="email" id="email" onChange={this.onChange} />
-        </label>
-
-        <DatePicker selected={this.state.date} onChange={this.onDateChange} />
-      </form>
-    );
-  }
-}
+export default EventForm;
