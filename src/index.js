@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import EventContainer from "./EventContainer";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<EventContainer />, document.getElementById("root"));
