@@ -5,13 +5,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import Input from "./Input";
 import SubmitButton from "./SubmitButton";
 
-const EventForm = ({ onChange, date, onDateChange }) => (
-  <form autoComplete="off">
-    <Input labelName="First name" id="firstname" event={onChange} />
+const EventForm = ({ onChange, date, onDateChange, onSubmit }) => (
+  <form autoComplete="off" onSubmit={onSubmit}>
+    <Input labelName="First name" id="firstname" event={onChange} required />
 
-    <Input labelName="Last name" id="lastname" event={onChange} />
+    <Input labelName="Last name" id="lastname" event={onChange} required />
 
-    <Input labelName="Email" id="email" event={onChange} />
+    <Input labelName="Email" id="email" event={onChange} required />
 
     <DatePicker selected={date} onChange={onDateChange} />
 
