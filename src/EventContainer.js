@@ -1,5 +1,5 @@
 import React from "react";
-import EventForm from "./EventForm";
+import EventForm from "./components/EventForm";
 
 export default class EventContainer extends React.Component {
   state = {
@@ -33,6 +33,24 @@ export default class EventContainer extends React.Component {
       this.setState(() => ({ error: "Please enter a valid email address" }));
     } else {
       this.setState(() => ({ error: "" }));
+
+      const userData = {
+        firstname,
+        lastname,
+        email,
+        date: date.valueOf()
+      };
+
+      fetch("http://localhost:1234/users/user", {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(res => res.json())
+        .then(response => console.log("Success:", JSON.stringify(response)))
+        .catch(error => console.error("Error:", error));
     }
   };
 
