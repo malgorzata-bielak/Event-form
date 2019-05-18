@@ -1,7 +1,10 @@
 import React from "react";
-import EventForm from "../components/EventForm";
+import { connect } from "react-redux";
 
-export default class EventContainer extends React.Component {
+import EventForm from "../components/EventForm";
+import { saveUserData } from "../actions/users";
+
+class EventContainer extends React.Component {
   state = {
     firstname: "",
     lastname: "",
@@ -51,7 +54,10 @@ export default class EventContainer extends React.Component {
         .then(res => {
           return res.json();
         })
-        .then(response => console.log("Success:", JSON.stringify(response)))
+        .then(response => {
+          this.props.saveUserData(userData);
+          console.log("Success:", JSON.stringify(response));
+        })
         .catch(error => console.error("Error:", error));
     }
   };
@@ -70,3 +76,8 @@ export default class EventContainer extends React.Component {
     );
   }
 }
+
+export default connect(
+  undefined,
+  { saveUserData }
+)(EventContainer);
