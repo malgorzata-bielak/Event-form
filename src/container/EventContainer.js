@@ -1,5 +1,5 @@
 import React from "react";
-import EventForm from "./components/EventForm";
+import EventForm from "../components/EventForm";
 
 export default class EventContainer extends React.Component {
   state = {
@@ -29,7 +29,7 @@ export default class EventContainer extends React.Component {
 
     if (!firstname || !lastname || !email || !date) {
       this.setState(() => ({ error: "Please provide all the necessary information" }));
-    } else if (email && !email.match(/^[a-z0-9]+[a-z0-9.-_]+@[a-z0-9.-]+[a-z]$/i)) {
+    } else if (email && !email.match(/^[a-z0-9]+[a-z0-9-._]*@[a-z0-9.-]+[a-z]$/i)) {
       this.setState(() => ({ error: "Please enter a valid email address" }));
     } else {
       this.setState(() => ({ error: "" }));
@@ -37,7 +37,7 @@ export default class EventContainer extends React.Component {
       const userData = {
         firstname,
         lastname,
-        email,
+        email: email.toLowerCase(),
         date: date.valueOf()
       };
 
@@ -48,7 +48,9 @@ export default class EventContainer extends React.Component {
           "Content-Type": "application/json"
         }
       })
-        .then(res => res.json())
+        .then(res => {
+          return res.json();
+        })
         .then(response => console.log("Success:", JSON.stringify(response)))
         .catch(error => console.error("Error:", error));
     }

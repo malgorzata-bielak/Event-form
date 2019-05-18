@@ -12,6 +12,6 @@ exports.userCreate = (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.send("User created successfully");
+    res.status(201).send({ t: "User created successfully" });
   });
 };
