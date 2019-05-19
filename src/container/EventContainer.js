@@ -10,7 +10,8 @@ class EventContainer extends React.Component {
     lastname: "",
     email: "",
     date: new Date(),
-    error: ""
+    validationError: "",
+    databaseResponse: ""
   };
 
   onChange = e => {
@@ -31,11 +32,15 @@ class EventContainer extends React.Component {
     e.preventDefault();
 
     if (!firstname || !lastname || !email || !date) {
-      this.setState(() => ({ error: "Please provide all the necessary information" }));
+      this.setState(() => ({ validationError: "Please provide all the necessary information" }));
+    } else if (firstname && !firstname.match(/^[a-z-\s\u00C0-\u024F\u1E00-\u1EFF]*$/i)) {
+      this.setState(() => ({ validationError: "Please enter a valid first name" }));
+    } else if (lastname && !lastname.match(/^[a-z-\s\u00C0-\u024F\u1E00-\u1EFF]*$/i)) {
+      this.setState(() => ({ validationError: "Please enter a valid last name" }));
     } else if (email && !email.match(/^[a-z0-9]+[a-z0-9-._]*@[a-z0-9.-]+[a-z]$/i)) {
-      this.setState(() => ({ error: "Please enter a valid email address" }));
+      this.setState(() => ({ validationError: "Please enter a valid email address" }));
     } else {
-      this.setState(() => ({ error: "" }));
+      this.setState(() => ({ validationError: "" }));
 
       const userData = {
         firstname,
@@ -55,23 +60,28 @@ class EventContainer extends React.Component {
           return res.json();
         })
         .then(response => {
+          this.setState(() => ({ databaseResponse: "Your data has been successfully saved" }));
           this.props.saveUserData(userData);
           console.log("Success:", JSON.stringify(response));
         })
-        .catch(error => console.error("Error:", error));
+        .catch(error => {
+          this.setState(() => ({ databaseResponse: "Sorry, we could not save your data" }));
+          console.error("Error:", error);
+        });
     }
   };
 
   render() {
     return (
       <>
-        {this.state.error ? <p>{`${this.state.error}`}</p> : ""}
+        {this.state.validationError ? <p>{`${this.state.validationError}`}</p> : ""}
         <EventForm
           date={this.state.date}
           onChange={this.onChange}
           onDateChange={this.onDateChange}
           onSubmit={this.onSubmit}
         />
+        {<p>{`${this.state.databaseResponse}`}</p>}
       </>
     );
   }
