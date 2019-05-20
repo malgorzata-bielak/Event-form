@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const user = require("./event.route");
+const eventController = require("./event.controller");
 
 const app = express();
 app.use(cors());
@@ -17,7 +17,8 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/users", user);
+
+app.post("/users", eventController.userCreate);
 
 const port = process.env.PORT;
 

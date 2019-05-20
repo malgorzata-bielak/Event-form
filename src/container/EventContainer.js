@@ -70,7 +70,7 @@ class EventContainer extends React.Component {
         date: date.valueOf()
       };
 
-      fetch("http://localhost:1234/users/user", {
+      fetch("http://localhost:1234/users", {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
@@ -109,12 +109,7 @@ class EventContainer extends React.Component {
   render() {
     return (
       <Container>
-        {this.state.validationError ? (
-          <ValidationError>{`${this.state.validationError}`}</ValidationError>
-        ) : (
-          ""
-        )}
-
+        <ValidationError>{`${this.state.validationError}`}</ValidationError>
         {this.state.isSaving ? <Response>Please wait...</Response> : ""}
         {this.state.databaseResponse ? <Response>{`${this.state.databaseResponse}`}</Response> : ""}
         <EventForm
