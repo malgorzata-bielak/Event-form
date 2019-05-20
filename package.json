@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.11",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "env-cmd": "^9.0.1",

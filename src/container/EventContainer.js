@@ -1,8 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from "@emotion/styled";
 
 import EventForm from "../components/EventForm";
 import { saveUserData } from "../actions/users";
+
+const Container = styled.div`
+  max-width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px auto;
+`;
+
+const ValidationError = styled.p`
+  margin: 0 0 25px;
+  color: #d41b56;
+  font-style: italic;
+`;
+
+const Response = styled.p`
+  margin: 0 0 25px;
+  font-style: italic;
+`;
 
 class EventContainer extends React.Component {
   state = {
@@ -62,7 +82,7 @@ class EventContainer extends React.Component {
         })
         .then(response => {
           this.setState(() => ({
-            databaseResponse: "Your data has been successfully saved",
+            databaseResponse: "Your data has been saved successfully",
             date: new Date(),
             isSaving: false
           }));
@@ -88,17 +108,22 @@ class EventContainer extends React.Component {
 
   render() {
     return (
-      <>
-        {this.state.validationError ? <p>{`${this.state.validationError}`}</p> : ""}
+      <Container>
+        {this.state.validationError ? (
+          <ValidationError>{`${this.state.validationError}`}</ValidationError>
+        ) : (
+          ""
+        )}
+
+        {this.state.isSaving ? <Response>Please wait...</Response> : ""}
+        {this.state.databaseResponse ? <Response>{`${this.state.databaseResponse}`}</Response> : ""}
         <EventForm
           date={this.state.date}
           onChange={this.onChange}
           onDateChange={this.onDateChange}
           onSubmit={this.onSubmit}
         />
-        {<p>{this.state.isSaving ? "Please wait..." : ""}</p>}
-        {<p>{`${this.state.databaseResponse}`}</p>}
-      </>
+      </Container>
     );
   }
 }
