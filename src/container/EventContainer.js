@@ -11,7 +11,8 @@ class EventContainer extends React.Component {
     email: "",
     date: new Date(),
     validationError: "",
-    databaseResponse: ""
+    databaseResponse: "",
+    isSaving: false
   };
 
   onChange = e => {
@@ -40,7 +41,7 @@ class EventContainer extends React.Component {
     } else if (email && !email.match(/^[a-z0-9]+[a-z0-9-._]*@[a-z0-9.-]+[a-z]$/i)) {
       this.setState(() => ({ validationError: "Please enter a valid email address" }));
     } else {
-      this.setState(() => ({ validationError: "" }));
+      this.setState(() => ({ validationError: "", isSaving: true }));
 
       const userData = {
         firstname,
@@ -60,12 +61,26 @@ class EventContainer extends React.Component {
           return res.json();
         })
         .then(response => {
-          this.setState(() => ({ databaseResponse: "Your data has been successfully saved" }));
+          this.setState(() => ({
+            databaseResponse: "Your data has been successfully saved",
+            date: new Date(),
+            isSaving: false
+          }));
+
           this.props.saveUserData(userData);
+          document.getElementById("user-data-form").reset();
+          setTimeout(() => {
+            this.setState({ databaseResponse: "" });
+          }, 4000);
+
           console.log("Success:", JSON.stringify(response));
         })
         .catch(error => {
-          this.setState(() => ({ databaseResponse: "Sorry, we could not save your data" }));
+          this.setState(() => ({
+            databaseResponse: "Sorry, we could not save your data",
+            isSaving: false
+          }));
+
           console.error("Error:", error);
         });
     }
@@ -81,6 +96,7 @@ class EventContainer extends React.Component {
           onDateChange={this.onDateChange}
           onSubmit={this.onSubmit}
         />
+        {<p>{this.state.isSaving ? "Please wait..." : ""}</p>}
         {<p>{`${this.state.databaseResponse}`}</p>}
       </>
     );
