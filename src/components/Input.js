@@ -28,7 +28,7 @@ const Input = ({ labelName, id, event, autofocus }) => (
   <>
     <Label htmlFor={id}>
       {labelName}
-      <InputField id={id} onChange={event} autoFocus={autofocus ? true : false} required />
+      <InputField id={id} onChange={event} autoFocus={autofocus} required />
     </Label>
   </>
 );

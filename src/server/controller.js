@@ -1,4 +1,4 @@
-const User = require("./event.model");
+const User = require("./model");
 
 exports.userCreate = (req, res, next) => {
   const user = new User({
@@ -12,6 +12,7 @@ exports.userCreate = (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.status(201).send({ t: "User created successfully" });
+
+    res.send({ message: "User created successfully" });
   });
 };

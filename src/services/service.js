@@ -6,6 +6,7 @@ export const addUser = ({ userData, backendResponse, saveUserData }) => {
       "Content-Type": "application/json"
     }
   })
+    .then(res => res.json())
     .then(() => {
       backendResponse("Your data has been saved successfully");
       saveUserData(userData);
