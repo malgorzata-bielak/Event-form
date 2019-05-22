@@ -64,7 +64,7 @@ class EventContainer extends React.Component {
 
     this.setState({ validationError: "", isSaving: true, databaseResponse: "" });
 
-    const userData = {
+    const user = {
       firstname,
       lastname,
       email: email.toLowerCase(),
@@ -73,7 +73,7 @@ class EventContainer extends React.Component {
 
     addUser({
       saveUserData,
-      userData,
+      user,
       backendResponse: this.backendResponse
     });
   };

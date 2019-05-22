@@ -1,4 +1,4 @@
-export const saveUserData = data => ({
+export const saveUserData = user => ({
   type: "SAVE_USER_DATA",
-  data
+  user
 });
