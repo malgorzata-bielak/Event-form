@@ -1,5 +1,5 @@
 import { saveUserData } from "../../actions/users";
-import { users } from "../test-data/users";
+import { users } from "../testData/users";
 
 test("should setup save user action object with provided values", () => {
   const action = saveUserData(users[0]);

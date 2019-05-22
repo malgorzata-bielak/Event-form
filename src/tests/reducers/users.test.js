@@ -1,5 +1,5 @@
-import { usersReducer } from "../../reducers/users";
-import { users } from "../test-data/users";
+import usersReducer from "../../reducers/users";
+import { users } from "../testData/users";
 
 test("should set default state", () => {
   const state = usersReducer(undefined, { type: "@@INIT" });

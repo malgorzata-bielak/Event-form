@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Input correctly 1`] = `
+<Fragment>
+  <Styled(label)
+    htmlFor="userIdOne"
+  >
+    name
+    <Styled(input)
+      id="userIdOne"
+      onChange={[MockFunction]}
+      required={true}
+    />
+  </Styled(label)>
+</Fragment>
+`;

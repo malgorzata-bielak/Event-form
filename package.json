@@ -8,7 +8,10 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "env-cmd": "^9.0.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.1",
     "express": "^4.16.4",
+    "jest-enzyme": "^7.0.2",
     "mongoose": "^5.5.9",
     "nodemon": "^1.19.0",
     "react": "^16.8.6",
@@ -16,6 +19,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-scripts": "3.0.1",
+    "react-test-renderer": "^16.8.6",
     "redux": "^4.0.1",
     "validator": "^10.11.0"
   },

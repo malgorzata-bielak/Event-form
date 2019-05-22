@@ -1,6 +1,6 @@
 const usersReducerDefaultState = [];
 
-export const usersReducer = (state = usersReducerDefaultState, action) => {
+const usersReducer = (state = usersReducerDefaultState, action) => {
   switch (action.type) {
     case "SAVE_USER_DATA":
       return [...state, action.user];
@@ -8,3 +8,5 @@ export const usersReducer = (state = usersReducerDefaultState, action) => {
       return state;
   }
 };
+
+export default usersReducer;
