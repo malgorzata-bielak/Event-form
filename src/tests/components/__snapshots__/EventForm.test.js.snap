@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EventForm correctly 1`] = `
+<Styled(form)
+  autoComplete="off"
+  id="user-data-form"
+  onSubmit={[MockFunction]}
+>
+  <Input
+    autofocus={true}
+    event={[MockFunction]}
+    id="firstname"
+    labelName="First name"
+  />
+  <Input
+    event={[MockFunction]}
+    id="lastname"
+    labelName="Last name"
+  />
+  <Input
+    event={[MockFunction]}
+    id="email"
+    labelName="Email"
+  />
+  <Styled(label)>
+    Date
+    <Styled(DatePicker)
+      allowSameDay={false}
+      dateFormat="MM/dd/yyyy"
+      dateFormatCalendar="LLLL yyyy"
+      disabled={false}
+      disabledKeyboardNavigation={false}
+      dropdownMode="scroll"
+      inlineFocusSelectedMonth={false}
+      monthsShown={1}
+      nextMonthButtonLabel="Next month"
+      onBlur={[Function]}
+      onChange={[MockFunction]}
+      onClickOutside={[Function]}
+      onFocus={[Function]}
+      onInputClick={[Function]}
+      onInputError={[Function]}
+      onKeyDown={[Function]}
+      onMonthChange={[Function]}
+      onSelect={[Function]}
+      onYearChange={[Function]}
+      preventOpenOnFocus={false}
+      previousMonthButtonLabel="Previous Month"
+      readOnly={false}
+      renderDayContents={[Function]}
+      selected={1558615381720}
+      shouldCloseOnSelect={true}
+      showMonthYearPicker={false}
+      showTimeInput={false}
+      showTimeSelect={false}
+      strictParsing={false}
+      timeCaption="Time"
+      timeInputLabel="Time"
+      timeIntervals={30}
+      withPortal={false}
+    />
+  </Styled(label)>
+  <SubmitButton />
+</Styled(form)>
+`;
