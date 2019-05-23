@@ -5,12 +5,12 @@ import Input from "../../components/Input";
 
 const propsData = [
   {
-    labelName: "name",
+    labelName: "nameOne",
     id: "userIdOne",
     event: jest.fn()
   },
   {
-    labelName: "name",
+    labelName: "nameTwo",
     id: "userIdTwo",
     event: jest.fn(),
     autofocus: true

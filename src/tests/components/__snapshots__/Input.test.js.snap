@@ -5,7 +5,7 @@ exports[`should render Input correctly 1`] = `
   <Styled(label)
     htmlFor="userIdOne"
   >
-    name
+    nameOne
     <Styled(input)
       id="userIdOne"
       onChange={[MockFunction]}
