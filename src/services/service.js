@@ -1,4 +1,4 @@
-export const addUser = ({ user, backendResponse, saveUserData }) => {
+export const addUser = ({ user, backendResponse, saveUserData }) =>
   fetch("http://localhost:1234/users", {
     method: "POST",
     body: JSON.stringify(user),
@@ -8,10 +8,9 @@ export const addUser = ({ user, backendResponse, saveUserData }) => {
   })
     .then(res => res.json())
     .then(() => {
-      backendResponse("Your data has been saved successfully");
       saveUserData(user);
+      backendResponse("Your data has been saved successfully");
     })
     .catch(() => {
       backendResponse("Sorry, we could not save your data");
     });
-};
