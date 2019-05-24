@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EventContainer correctly 1`] = `
+<Styled(div)>
+  <FeedbackMessage
+    databaseResponse=""
+    isSaving={false}
+    validationError=""
+  />
+  <EventForm
+    date={2019-05-22T22:00:00.000Z}
+    onChange={[Function]}
+    onDateChange={[Function]}
+    onSubmit={[Function]}
+  />
+</Styled(div)>
+`;

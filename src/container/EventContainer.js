@@ -6,9 +6,9 @@ import FeedbackMessage from "../components/FeedbackMessage";
 import FormWrapper from "../components/FormWrapper";
 import { saveUserData } from "../actions/users";
 import { addUser } from "../services/service";
-import { isNameValid, isEmailValid } from "../helpers/validator";
+import { isNameValid, isEmailValid } from "../validators/validator";
 
-class EventContainer extends React.Component {
+export class EventContainer extends React.Component {
   state = {
     firstname: "",
     lastname: "",
@@ -41,8 +41,8 @@ class EventContainer extends React.Component {
   };
 
   onSubmit = e => {
-    const { firstname, lastname, email, date } = this.state;
     e.preventDefault();
+    const { firstname, lastname, email, date } = this.state;
 
     if (!firstname || !lastname || !email || !date) {
       return this.setState({

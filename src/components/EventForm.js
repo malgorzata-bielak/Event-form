@@ -27,7 +27,7 @@ const EventForm = ({ onChange, onDateChange, onSubmit, date }) => (
 
     <Input labelName="Email" id="email" event={onChange} />
 
-    <Label>
+    <Label id="date-picker">
       Date
       <DatePickerStyle selected={date} onChange={onDateChange} />
     </Label>

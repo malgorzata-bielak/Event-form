@@ -22,7 +22,9 @@ exports[`should render EventForm correctly 1`] = `
     id="email"
     labelName="Email"
   />
-  <Styled(label)>
+  <Styled(label)
+    id="date-picker"
+  >
     Date
     <Styled(DatePicker)
       allowSameDay={false}

@@ -1,9 +1,9 @@
-import { isEmailValid, isNameValid } from "../../helpers/validator";
+import { isEmailValid, isNameValid } from "../../validators/validator";
 
 const validEmail = ["johnny@deep.pl", "mail123@gmail.com", "my_email-add.ress@my-domain.com"];
 const invalidEmail = ["email   address@gmail.com", "-email@email.com", "my@email@gmail.com"];
 
-const validName = ["Johnny", "susan", "Jean-Paul", "Mary Jane"];
+const validName = ["Johnny", "susan", "Jean-Dominique", "Mary Jane"];
 const invalidName = ["123456", "Jo123", "M@ry"];
 
 validEmail.forEach(email =>

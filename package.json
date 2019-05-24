@@ -12,6 +12,7 @@
     "enzyme-adapter-react-16": "^1.13.1",
     "express": "^4.16.4",
     "jest-enzyme": "^7.0.2",
+    "mockdate": "^2.0.2",
     "mongoose": "^5.5.9",
     "nodemon": "^1.19.0",
     "react": "^16.8.6",
