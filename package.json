@@ -14,7 +14,7 @@
     "jest-enzyme": "^7.0.2",
     "jest-fetch-mock": "^2.1.2",
     "mockdate": "^2.0.2",
-    "mongoose": "^5.5.9",
+    "mongoose": "^5.7.5",
     "nodemon": "^1.19.0",
     "react": "^16.8.6",
     "react-datepicker": "^2.5.0",
