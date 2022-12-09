@@ -10,7 +10,7 @@
     "env-cmd": "^9.0.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jest-enzyme": "^7.0.2",
     "jest-fetch-mock": "^2.1.2",
     "mockdate": "^2.0.2",
